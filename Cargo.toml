@@ -1,0 +1,7 @@
+[package]
+name = "tiny-jpeg-rs"
+version = "0.1.0"
+authors = ["apoorvaj <apoorvaj@apoorvaj.io>"]
+
+[dependencies]
+byteorder = "1"
