@@ -234,18 +234,8 @@ fn append_bits(
 }
 
 fn fdct(data: &mut [f32]) {
-    let (mut tmp0,
-         mut tmp1,
-         mut tmp2,
-         mut tmp3,
-         mut tmp4,
-         mut tmp5,
-         mut tmp6,
-         mut tmp7,
-         mut tmp10,
-         mut tmp11,
-         mut tmp12,
-         mut tmp13);
+    let (mut tmp0, mut tmp1, mut tmp2, mut tmp3, mut tmp4, mut tmp5, mut tmp6,
+         mut tmp7, mut tmp10, mut tmp11, mut tmp12, mut tmp13);
     let (mut z1, mut z2, mut z3, mut z4, mut z5, mut z11, mut z13);
 
     /* Pass 1: process rows. */
@@ -512,14 +502,8 @@ fn encode_main(mem: &State, w: i32, h: i32, num_components: i32, data: &[u8]) ->
        What's actually stored is 1/divisor so that the inner loop can
        use a multiplication rather than a division. */
     const AAN_SCALES: [f32; 8] = [
-        1.0,
-        1.387039845,
-        1.306562965,
-        1.175875602,
-        1.0,
-        0.785694958,
-        0.541196100,
-        0.275899379,
+        1.0, 1.387039845, 1.306562965, 1.175875602,
+        1.0, 0.785694958, 0.541196100, 0.275899379,
     ];
 
     // Build (de)quantization tables
