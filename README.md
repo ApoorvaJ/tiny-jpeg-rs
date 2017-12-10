@@ -4,6 +4,36 @@ This is a JPEG encoding library written in Rust. It is a direct port of
 I mainly wrote it to better understand the Rust language. It could be adapted
 for production, but isn't ready for that out of the box.
 
+The public interface of this library is as follows:
+
+```rust
+pub enum Quality {
+    Medium,
+    High,
+    Highest,
+}
+
+
+/// Takes bitmap data and writes a JPEG-encoded image to disk at the highest
+/// quality.
+pub fn encode_to_file(dest: &Path, w: i32, h: i32, num_components: i32,
+	                  data: &[u8])
+	                  -> Result<(), io::Error>
+
+
+/// Takes bitmap data and writes a JPEG-encoded image to disk at the specified
+/// quality.
+pub fn encode_to_file_at_quality(dest: &Path, quality: Quality, w: i32, h: i32,
+	                             num_components: i32, data: &[u8])
+	                             -> Result<(), io::Error>
+
+
+/// Returns a JPEG-encoded buffer, given bitmap data
+pub fn encode_to_buffer(quality: Quality, w: i32, h: i32, num_components: i32,
+	                    data: &[u8])
+	                    -> Vec<u8>
+```
+
 The following things should be added before using it in production:
 
 1. *Testing* - Currently there is only one test, in which we encode a white
